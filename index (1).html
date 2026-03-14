@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>inexplicavel.com.br</title>
+
+<!-- ARG Layer 1 — visível no source -->
+<!--
+  FREQUÊNCIA PRIMÁRIA: 3718.4 Hz
+  FREQUÊNCIA SECUNDÁRIA: 7436.8 Hz
+
+  SEQUÊNCIA: 01001001 01001110 01000101 01011000
+  DECODIFIQUE. CONTINUE.
+
+  O número na tela não é aleatório.
+  Converta para binário a cada hora cheia.
+  Registre. Junte os fragmentos.
+
+  "às 03:00 o tempo não anda para frente"
+  "às 03:00 algo adiciona"
+  "às 03:00 alguém está acordado que não deveria estar"
+
+  coordenadas: -23.5505, -46.6333
+  próximo fragmento: quando você menos esperar
+
+  — nós já sabemos quem você é
+-->
+
+<!-- ARG Layer 2 — metadados -->
+<meta name="description" content="inexplicavel">
+<meta name="keywords" content="3718,INEX,fragmento-1,01001001">
+<meta name="author" content="O Observador">
+<!-- data-fragment="I" data-seq="01001001" data-next="?" -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#CC2222;--dred:#8B0000;--blood:#660000;
+  --bg:#030101;--bg2:#0A0303;
+  --text:#C88888;--textd:#885555;--textm:#553333;--muted:#331111;
+  --mono:'Share Tech Mono',monospace;
+  --serif:'Crimson Pro',Georgia,serif;
+}
+html,body{width:100%;min-height:100%;background:var(--bg);color:var(--text);
+  font-family:var(--serif);overflow-x:hidden}
+
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,
+  rgba(0,0,0,0.07) 3px,rgba(0,0,0,0.07) 4px)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.75) 100%)}
+
+.noise{position:fixed;inset:0;pointer-events:none;z-index:98;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;animation:flicker 0.15s steps(1) infinite}
+@keyframes flicker{0%{opacity:.03}25%{opacity:.04}50%{opacity:.025}75%{opacity:.035}100%{opacity:.03}}
+
+.scanline{position:fixed;left:0;right:0;height:2px;pointer-events:none;z-index:101;
+  background:linear-gradient(90deg,transparent,rgba(180,20,20,0.1),transparent);
+  animation:scan 9s linear infinite}
+@keyframes scan{0%{top:-2px}100%{top:100vh}}
+
+.flash-overlay{position:fixed;inset:0;pointer-events:none;z-index:200;
+  display:flex;align-items:center;justify-content:center;opacity:0}
+
+.domain-bar{position:fixed;top:0;left:0;right:0;padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--muted);background:rgba(3,1,1,0.96);
+  z-index:50;font-family:var(--mono);font-size:11px;color:var(--textm);
+  backdrop-filter:blur(4px)}
+.domain-bar .url{color:var(--textd)}
+.status-dot{animation:blink 2s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.freq{position:fixed;top:50px;right:20px;font-family:var(--mono);font-size:9px;
+  color:var(--muted);writing-mode:vertical-rl;letter-spacing:2px;
+  animation:fadein 5s ease both 6s}
+.source-hint{position:fixed;bottom:16px;left:20px;font-family:var(--mono);
+  font-size:9px;color:var(--muted);letter-spacing:1px;animation:fadein 4s ease both 5s}
+.coords{position:fixed;bottom:16px;right:20px;font-family:var(--mono);
+  font-size:9px;color:var(--muted);letter-spacing:1px;animation:fadein 4s ease both 4s}
+
+.page{min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:60px 24px 40px;position:relative;z-index:10}
+.center{text-align:center;max-width:520px;width:100%}
+
+.eye-wrap{margin-bottom:44px;animation:breathe 6s ease-in-out infinite;cursor:default}
+@keyframes breathe{
+  0%,100%{transform:scale(1);filter:drop-shadow(0 0 8px rgba(180,20,20,0.3))}
+  50%{transform:scale(1.04);filter:drop-shadow(0 0 22px rgba(180,20,20,0.6))}}
+
+.date-line{font-family:var(--mono);font-size:11px;color:var(--muted);
+  letter-spacing:4px;margin-bottom:36px;animation:fadein 3s ease both}
+.divider{width:80px;height:1px;background:var(--dred);margin:0 auto 28px;
+  animation:expand 2s ease both 0.5s;transform-origin:center}
+@keyframes expand{from{width:0}to{width:80px}}
+
+.message{font-family:var(--serif);font-size:clamp(15px,3vw,19px);line-height:1.9;
+  color:var(--textd);font-style:italic;margin-bottom:36px;
+  animation:fadein 3s ease both 1s;min-height:56px}
+.cursor{display:inline-block;width:10px;height:18px;background:var(--red);
+  vertical-align:middle;margin-left:2px;animation:blink 0.8s step-end infinite}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.number-wrap{margin-bottom:36px;animation:fadein 2s ease both 1.5s}
+.number-label{font-family:var(--mono);font-size:10px;color:var(--textm);
+  letter-spacing:3px;margin-bottom:10px}
+.big-number{font-family:var(--mono);font-size:clamp(36px,7vw,52px);color:var(--red);
+  letter-spacing:6px;text-shadow:0 0 20px rgba(180,20,20,0.3);transition:color 0.5s}
+.big-number.adding{color:#CC8822;text-shadow:0 0 20px rgba(180,120,0,0.4)}
+.number-hint{font-family:var(--mono);font-size:9px;color:var(--muted);
+  margin-top:6px;letter-spacing:2px;min-height:14px}
+.binary-hint{font-family:var(--mono);font-size:9px;color:var(--muted);
+  margin-top:4px;letter-spacing:1px;min-height:14px;opacity:0;transition:opacity 2s}
+
+.audio-wrap{display:flex;align-items:center;justify-content:center;
+  gap:8px;margin-bottom:36px;animation:fadein 2s ease both 2s}
+.audio-label{font-family:var(--mono);font-size:10px;color:var(--textm);letter-spacing:2px}
+.bars{display:flex;gap:3px;align-items:flex-end;height:18px}
+.bar{width:3px;background:var(--dred);border-radius:1px;
+  animation:audiobar 1.2s ease-in-out infinite}
+.bar:nth-child(1){animation-delay:0s;height:8px}
+.bar:nth-child(2){animation-delay:.15s;height:14px}
+.bar:nth-child(3){animation-delay:.30s;height:6px}
+.bar:nth-child(4){animation-delay:.20s;height:16px}
+.bar:nth-child(5){animation-delay:.10s;height:10px}
+@keyframes audiobar{
+  0%,100%{transform:scaleY(0.4);opacity:0.4}
+  50%{transform:scaleY(1);opacity:1}}
+
+.input-wrap{animation:fadein 2s ease both 2.5s;margin-bottom:10px}
+.input-line{display:flex;align-items:center;border:1px solid var(--muted);
+  border-radius:3px;overflow:hidden;max-width:380px;margin:0 auto;
+  transition:border-color 0.2s}
+.input-line:focus-within{border-color:var(--dred);
+  box-shadow:0 0 12px rgba(120,0,0,0.2)}
+.input-prompt{font-family:var(--mono);font-size:12px;color:var(--red);
+  padding:0 12px;background:var(--bg2);border-right:1px solid var(--muted);
+  height:42px;display:flex;align-items:center;flex-shrink:0}
+.input-field{flex:1;background:transparent;border:none;outline:none;
+  font-family:var(--mono);font-size:12px;color:var(--text);
+  padding:0 14px;height:42px;caret-color:var(--red)}
+.input-field::placeholder{color:var(--muted)}
+.input-btn{background:var(--blood);border:none;outline:none;
+  color:var(--textd);font-family:var(--mono);font-size:11px;
+  padding:0 16px;height:42px;cursor:pointer;
+  transition:background 0.2s,color 0.2s;flex-shrink:0}
+.input-btn:hover{background:var(--dred);color:var(--text)}
+
+.input-hint{font-family:var(--mono);font-size:10px;color:var(--muted);
+  letter-spacing:1px;animation:fadein 2s ease both 3s}
+.response-box{max-width:380px;margin:14px auto 0;padding:14px 18px;
+  background:var(--bg2);border:1px solid var(--muted);
+  border-left:3px solid var(--dred);border-radius:3px;
+  font-family:var(--serif);font-style:italic;font-size:14px;
+  color:var(--textd);line-height:1.8;display:none;
+  animation:fadein 0.5s ease both}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="scanline"></div>
+<div class="flash-overlay" id="flash"></div>
+
+<div class="domain-bar">
+  <span class="url">https://www.inexplicavel.com.br</span>
+  <span class="status-dot">● CONECTADO</span>
+</div>
+
+<div class="freq">3718.4 Hz ////// SINAL ATIVO</div>
+
+<main class="page">
+  <div class="center">
+
+    <div class="eye-wrap">
+      <svg width="100" height="62" viewBox="0 0 180 110"
+           xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="ec">
+            <path d="M10,55 Q90,-5 170,55 Q90,115 10,55 Z"/>
+          </clipPath>
+        </defs>
+        <path d="M10,55 Q90,-5 170,55 Q90,115 10,55 Z"
+              fill="#100505" stroke="#4A1010" stroke-width="1.5"/>
+        <circle cx="90" cy="55" r="30" fill="#330000" clip-path="url(#ec)"/>
+        <circle cx="90" cy="55" r="22" fill="#660000" clip-path="url(#ec)"/>
+        <circle cx="90" cy="55" r="14" fill="#AA1111" clip-path="url(#ec)"/>
+        <circle cx="90" cy="55" r="8"  fill="#CC2222" clip-path="url(#ec)"/>
+        <circle cx="90" cy="55" r="4"  fill="#030101" clip-path="url(#ec)"/>
+        <circle cx="96" cy="50" r="2.5" fill="#FF5555"
+                opacity="0.8" clip-path="url(#ec)"/>
+        <path d="M10,55 Q90,-5 170,55 Q90,115 10,55 Z"
+              fill="none" stroke="#8B0000" stroke-width="1.5"/>
+        <line x1="10"  y1="55" x2="2"   y2="48" stroke="#5A1010" stroke-width="1"/>
+        <line x1="55"  y1="24" x2="50"  y2="14" stroke="#5A1010" stroke-width="1"/>
+        <line x1="90"  y1="10" x2="90"  y2="0"  stroke="#5A1010" stroke-width="1"/>
+        <line x1="125" y1="24" x2="130" y2="14" stroke="#5A1010" stroke-width="1"/>
+        <line x1="170" y1="55" x2="178" y2="48" stroke="#5A1010" stroke-width="1"/>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0;0 -1;0 0;0 1;0 0"
+          dur="4s" repeatCount="indefinite"/>
+      </svg>
+    </div>
+
+    <div class="date-line" id="dateline">-- / -- / ----  ·  --:--:--</div>
+    <div class="divider"></div>
+
+    <p class="message">
+      <span id="typetext"></span>
+      <span class="cursor"></span>
+    </p>
+
+    <div class="number-wrap">
+      <div class="number-label" id="num-label">ALGO DIMINUI</div>
+      <div class="big-number" id="bignumber">--------</div>
+      <div class="number-hint" id="num-hint"></div>
+      <div class="binary-hint" id="binhint"></div>
+    </div>
+
+    <div class="audio-wrap">
+      <div class="bars">
+        <div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <span class="audio-label">SINAL DETECTADO</span>
+      <div class="bars">
+        <div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <div class="input-wrap">
+      <div class="input-line">
+        <span class="input-prompt">&gt;_</span>
+        <input class="input-field" type="text" id="inp"
+          placeholder=""
+          maxlength="80" autocomplete="off" spellcheck="false"/>
+        <button class="input-btn" id="inpbtn">&#8212;</button>
+      </div>
+    </div>
+
+    <div class="input-hint" id="hint">
+      resposta não é garantida &nbsp;·&nbsp; mas alguém está ouvindo
+    </div>
+
+    <div class="response-box" id="resp"></div>
+
+  </div>
+</main>
+
+<div class="source-hint">// view-source — o que você procura está escondido</div>
+<div class="coords">-23.5505° S &nbsp;·&nbsp; -46.6333° O</div>
+
+<script>
+// ── TYPEWRITER ──────────────────────────────────────────────
+const msgs=[
+  "Você sabe o que isso é?",
+  "Nós já sabemos quem você é.",
+  "Algo está diminuindo.",
+  "Você não vai conseguir explicar.",
+  "Às 03:00 o tempo não anda para frente.",
+  "Ainda não é hora.",
+  "Mas está quase.",
+  "O número tem uma lógica.",
+  "Você consegue ouvir 3718.4 Hz?",
+];
+let mi=0,ci=0,typing=true,paused=false;
+const tel=document.getElementById('typetext');
+function typeStep(){
+  if(paused)return;
+  const t=msgs[mi];
+  if(typing){
+    if(ci<=t.length){tel.textContent=t.slice(0,ci++);}
+    else{typing=false;paused=true;setTimeout(()=>{paused=false;},2600);return;}
+  }else{
+    if(ci>0){tel.textContent=t.slice(0,--ci);}
+    else{
+      typing=true;mi=(mi+1)%msgs.length;
+      paused=true;setTimeout(()=>{paused=false;},350);return;
+    }
+  }
+  setTimeout(typeStep,typing?52:26);
+}
+setTimeout(typeStep,1200);
+
+// ── CLOCK ───────────────────────────────────────────────────
+function updateClock(){
+  const n=new Date(),p=x=>String(x).padStart(2,'0');
+  document.getElementById('dateline').textContent=
+    `${p(n.getDate())} / ${p(n.getMonth()+1)} / ${n.getFullYear()}`+
+    `  ·  ${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
+}
+setInterval(updateClock,1000);updateClock();
+
+// PLACEHOLDERS ROTATIVOS
+const placeholders=[
+  {ph:'complete: as 03:00 eu _____',btn:'completar'},
+  {ph:'o que voce teme agora, neste momento',btn:'confessar'},
+  {ph:'diga seu nome',btn:'revelar'},
+  {ph:'o que voce viu antes de abrir esta pagina',btn:'admitir'},
+  {ph:'primeira palavra que veio a sua mente',btn:'entregar'},
+  {ph:'o que voce faria se soubesse que esta sendo observado',btn:'responder'},
+  {ph:'escreva o que voce nao consegue explicar',btn:'tentar'},
+  {ph:'algo ficou com voce depois das 03:00',btn:'confessar'},
+  {ph:'o ultimo medo que voce teve antes de dormir',btn:'admitir'},
+  {ph:'deixe algo aqui',btn:'—'},
+];
+const _ch=placeholders[Math.floor(Math.random()*placeholders.length)];
+document.getElementById('inp').placeholder=_ch.ph;
+document.getElementById('inpbtn').textContent=_ch.btn;
+
+// ── NÚMERO — Lógica A+C+D ───────────────────────────────────
+// Target: 31 de outubro — data secreta no código
+// Puzzle: converter o valor em binário a cada hora revela letras de INEXPLICAVEL
+const _t=(()=>{
+  const y=new Date().getFullYear();
+  let d=new Date(y,9,31,0,0,0);
+  if(d<=new Date())d=new Date(y+1,9,31,0,0,0);
+  return d;
+})();
+
+let currentVal=null;
+let addingMode=false;
+
+function getTickInterval(){
+  const h=new Date().getHours();
+  if(h===3)return -1;        // 03h → ADICIONA
+  if(h>=4&&h<=6)return 3000; // 04h-06h → lento
+  if(h===23)return 500;      // 23h → rápido
+  return 1000;               // resto → normal
+}
+
+function initNumber(){
+  const base=Math.floor((_t-new Date())/1000);
+  currentVal=Math.max(0,base);
+}
+
+function getBinaryHint(){
+  const letters="INEXPLICAVEL";
+  const h=new Date().getHours();
+  const letter=letters[h%letters.length];
+  return letter.charCodeAt(0).toString(2).padStart(8,'0');
+}
+
+function getHourlyHint(){
+  const h=new Date().getHours();
+  if(h===3)return "03:00 — o tempo não anda para frente aqui";
+  if(h>=4&&h<=6)return "algo desacelera nas primeiras horas";
+  if(h===23)return "a meia-noite se aproxima — ele acelera";
+  return "";
+}
+
+function updateNumber(){
+  if(currentVal===null)initNumber();
+  const numEl=document.getElementById('bignumber');
+  const labelEl=document.getElementById('num-label');
+  const hintEl=document.getElementById('num-hint');
+  const binEl=document.getElementById('binhint');
+  const interval=getTickInterval();
+  if(interval<0){
+    currentVal+=1;
+    addingMode=true;
+    numEl.className='big-number adding';
+    labelEl.textContent='ALGO AUMENTA';
+    hintEl.textContent='03:00 — o tempo não anda para frente';
+  }else{
+    if(currentVal>0)currentVal-=(interval<=500?2:1);
+    addingMode=false;
+    numEl.className='big-number';
+    labelEl.textContent='ALGO DIMINUI';
+    hintEl.textContent=getHourlyHint();
+  }
+  numEl.textContent=String(Math.max(0,currentVal)).padStart(8,'0');
+  binEl.textContent=getBinaryHint();
+  setTimeout(updateNumber,Math.abs(getTickInterval()));
+}
+setTimeout(()=>{
+  document.getElementById('binhint').style.opacity='1';
+},30000);
+setTimeout(updateNumber,2000);
+
+// ── FLASH SUBLIMINAR ────────────────────────────────────────
+const flashEl=document.getElementById('flash');
+const fearImages=[
+  // Olho em close
+  `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" style="position:absolute;inset:0">
+    <rect width="400" height="300" fill="#030101"/>
+    <ellipse cx="200" cy="150" rx="180" ry="70" fill="#0A0303"/>
+    <circle cx="200" cy="150" r="55" fill="#330000"/>
+    <circle cx="200" cy="150" r="42" fill="#660000"/>
+    <circle cx="200" cy="150" r="28" fill="#AA1111"/>
+    <circle cx="200" cy="150" r="16" fill="#CC2222"/>
+    <circle cx="200" cy="150" r="8"  fill="#030101"/>
+    <circle cx="212" cy="142" r="4"  fill="#FF5555" opacity="0.9"/>
+    <ellipse cx="200" cy="150" rx="180" ry="70" fill="none" stroke="#5A0000" stroke-width="2"/>
+  </svg>`,
+  // Rosto de sombra
+  `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" style="position:absolute;inset:0">
+    <rect width="400" height="300" fill="#030101"/>
+    <ellipse cx="200" cy="140" rx="60" ry="76" fill="none" stroke="#330000" stroke-width="1.5"/>
+    <ellipse cx="178" cy="120" rx="10" ry="13" fill="#1A0505"/>
+    <circle  cx="178" cy="120" r="5" fill="#660000"/>
+    <ellipse cx="222" cy="120" rx="10" ry="13" fill="#1A0505"/>
+    <circle  cx="222" cy="120" r="5" fill="#660000"/>
+    <path d="M175,160 Q200,175 225,160" fill="none" stroke="#330000" stroke-width="1.5"/>
+    <line x1="200" y1="216" x2="200" y2="300" stroke="#1A0505" stroke-width="1"/>
+    <line x1="200" y1="216" x2="140" y2="260" stroke="#1A0505" stroke-width="1"/>
+    <line x1="200" y1="216" x2="260" y2="260" stroke="#1A0505" stroke-width="1"/>
+  </svg>`,
+  // NÓS VEMOS
+  `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" style="position:absolute;inset:0">
+    <rect width="400" height="300" fill="#030101"/>
+    <text x="200" y="158" text-anchor="middle" font-family="monospace" font-size="52" fill="#8B0000">NÓS VEMOS</text>
+  </svg>`,
+  // Múltiplos olhos
+  `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" style="position:absolute;inset:0">
+    <rect width="400" height="300" fill="#030101"/>
+    <ellipse cx="80"  cy="80"  rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="80"  cy="80"  r="6" fill="#660000"/><circle cx="80"  cy="80"  r="3" fill="#030101"/>
+    <ellipse cx="320" cy="80"  rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="320" cy="80"  r="6" fill="#660000"/><circle cx="320" cy="80"  r="3" fill="#030101"/>
+    <ellipse cx="50"  cy="150" rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="50"  cy="150" r="6" fill="#660000"/><circle cx="50"  cy="150" r="3" fill="#030101"/>
+    <ellipse cx="200" cy="50"  rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="200" cy="50"  r="6" fill="#660000"/><circle cx="200" cy="50"  r="3" fill="#030101"/>
+    <ellipse cx="350" cy="150" rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="350" cy="150" r="6" fill="#660000"/><circle cx="350" cy="150" r="3" fill="#030101"/>
+    <ellipse cx="120" cy="220" rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="120" cy="220" r="6" fill="#660000"/><circle cx="120" cy="220" r="3" fill="#030101"/>
+    <ellipse cx="280" cy="220" rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="280" cy="220" r="6" fill="#660000"/><circle cx="280" cy="220" r="3" fill="#030101"/>
+    <ellipse cx="200" cy="260" rx="22" ry="10" fill="#0A0303" stroke="#3A0808" stroke-width="0.8"/><circle cx="200" cy="260" r="6" fill="#AA1111"/><circle cx="200" cy="260" r="3" fill="#030101"/>
+  </svg>`,
+  // Glitch
+  `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" style="position:absolute;inset:0">
+    <rect width="400" height="300" fill="#030101"/>
+    <rect x="0"   y="42"  width="400" height="7"  fill="#330000" opacity="0.5"/>
+    <rect x="60"  y="98"  width="340" height="4"  fill="#220000" opacity="0.4"/>
+    <rect x="0"   y="155" width="280" height="9"  fill="#440000" opacity="0.6"/>
+    <rect x="100" y="201" width="300" height="5"  fill="#330000" opacity="0.3"/>
+    <rect x="0"   y="248" width="400" height="6"  fill="#220000" opacity="0.5"/>
+    <text x="200" y="155" text-anchor="middle" font-family="monospace" font-size="13" fill="#660000" opacity="0.8">ERRO — ERRO — ERRO</text>
+  </svg>`,
+  // Binário — fragmento ARG
+  `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 400 300" style="position:absolute;inset:0">
+    <rect width="400" height="300" fill="#030101"/>
+    <text x="200" y="88"  text-anchor="middle" font-family="monospace" font-size="11" fill="#330000">01001001 01001110 01000101 01011000</text>
+    <text x="200" y="112" text-anchor="middle" font-family="monospace" font-size="11" fill="#220000">01010000 01001100 01001001 01000011</text>
+    <text x="200" y="136" text-anchor="middle" font-family="monospace" font-size="11" fill="#1A0000">01000001 01010110 01000101 01001100</text>
+    <text x="200" y="178" text-anchor="middle" font-family="monospace" font-size="24" fill="#660000">I N E X</text>
+    <text x="200" y="212" text-anchor="middle" font-family="monospace" font-size="10" fill="#330000">você encontrou o primeiro fragmento</text>
+  </svg>`,
+];
+
+let lastFlash=0,flashCount=0;
+function doFlash(){
+  const now=Date.now();
+  if(now-lastFlash<15000)return;
+  lastFlash=now;flashCount++;
+  const idx=flashCount%5===0?5:Math.floor(Math.random()*5);
+  flashEl.innerHTML=fearImages[idx];
+  const dur=80+Math.floor(Math.random()*80);
+  flashEl.style.opacity='1';
+  setTimeout(()=>{
+    flashEl.style.opacity='0';
+    setTimeout(()=>{flashEl.innerHTML='';},300);
+  },dur);
+}
+function scheduleFlash(){
+  const delay=20000+Math.floor(Math.random()*40000);
+  setTimeout(()=>{doFlash();scheduleFlash();},delay);
+}
+scheduleFlash();
+
+// Glitch no olho
+setInterval(()=>{
+  const e=document.querySelector('.eye-wrap');
+  e.style.filter='hue-rotate(15deg) saturate(2.5)';
+  setTimeout(()=>e.style.filter='',60);
+},9000+Math.random()*10000);
+
+// ── INPUT RESPONSES ─────────────────────────────────────────
+const responses={
+  default:[
+    "Essa não é a pergunta certa.",
+    "Você já sabe a resposta.",
+    "Nós registramos isso.",
+    "Continue procurando.",
+    "Interessante. Nós notamos.",
+    "Isso não vai te ajudar.",
+    "Você está mais perto do que imagina.",
+    "Ou mais longe. Difícil dizer.",
+    "O número tem uma lógica. Você a encontrou?",
+  ],
+  keywords:{
+    "jogo":"Isso é o que você acha que é?",
+    "game":"Isso é o que você acha que é?",
+    "inexplicável":"Você já sabe o nome. Mas não o que ele faz.",
+    "inexplicavel":"Você já sabe o nome. Mas não o que ele faz.",
+    "quem":"Nós. Mas a pergunta certa é: quem é você?",
+    "quando":"O número sabe. Converta para binário.",
+    "outubro":"O número sabe quando. Converta para binário.",
+    "medo":"Agora estamos chegando em algum lugar.",
+    "olho":"Ele estava olhando antes de você notar.",
+    "frequência":"3718.4 Hz. E também 7436.8 Hz.",
+    "frequencia":"3718.4 Hz. E também 7436.8 Hz.",
+    "binário":"01001001 01001110 01000101 01011000. Continue.",
+    "binario":"01001001 01001110 01000101 01011000. Continue.",
+    "inex":"Você encontrou o primeiro fragmento.",
+    "três":"Às 03:00 o tempo não anda para frente aqui.",
+    "3":"Às 03:00 o tempo não anda para frente aqui.",
+    "número":"Ele diminui. Às vezes aumenta. A lógica existe.",
+    "numero":"Ele diminui. Às vezes aumenta. A lógica existe.",
+    "ajuda":"Não há ajuda aqui. Só perguntas que levam a mais perguntas.",
+    "sair":"Você pode sair. Mas nós vamos continuar aqui.",
+    "ola":"Nós já sabíamos que você ia dizer isso.",
+    "olá":"Nós já sabíamos que você ia dizer isso.",
+    "oi":"Nós já sabíamos que você ia dizer isso.",
+    "hello":"We already knew you would say that.",
+    "source":"Você está no caminho certo.",
+    "fragmento":"Existem mais. Continue.",
+    "coordenadas":"Você sabe o que está naquele lugar?",
+    "são paulo":"Você sabe o que está naquele lugar?",
+  }
+};
+function getResp(input){
+  const low=input.toLowerCase().trim();
+  for(const[k,v]of Object.entries(responses.keywords)){
+    if(low.includes(k))return v;
+  }
+  return responses.default[Math.floor(Math.random()*responses.default.length)];
+}
+function submit(){
+  const val=document.getElementById('inp').value.trim();
+  if(!val)return;
+  const box=document.getElementById('resp');
+  box.style.display='block';box.textContent='';
+  document.getElementById('inp').value='';
+  document.getElementById('hint').textContent='mensagem recebida';
+  const r=getResp(val);
+  let i=0;
+  const iv=setInterval(()=>{
+    if(i<=r.length){box.textContent=r.slice(0,i++);}
+    else{
+      clearInterval(iv);
+      setTimeout(()=>{
+        document.getElementById('hint').textContent=
+          'resposta não é garantida · mas alguém está ouvindo';
+      },4000);
+    }
+  },38);
+}
+document.getElementById('inpbtn').addEventListener('click',submit);
+document.getElementById('inp').addEventListener('keydown',e=>{
+  if(e.key==='Enter')submit();
+});
+
+// ── ATALHOS DE TESTE (não documentados) ─────────────────────
+// Shift+F → flash aleatório imediato
+// Shift+1 a Shift+6 → imagem específica
+// Shift+0 → mostra todas em sequência
+document.addEventListener('keydown',e=>{
+  if(!e.shiftKey)return;
+  if(e.key==='F'||e.key==='f'){
+    // força flash ignorando cooldown
+    lastFlash=0;
+    doFlash();
+    return;
+  }
+  const n=parseInt(e.key);
+  if(n>=1&&n<=6){
+    // mostra imagem específica pelo índice
+    const idx=n-1;
+    flashEl.innerHTML=fearImages[idx];
+    const dur=120+Math.floor(Math.random()*80);
+    flashEl.style.opacity='1';
+    setTimeout(()=>{
+      flashEl.style.opacity='0';
+      setTimeout(()=>{flashEl.innerHTML='';},300);
+    },dur);
+    return;
+  }
+  if(e.key==='0'||e.key===')'){
+    // sequência completa com 1s entre cada
+    fearImages.forEach((_,i)=>{
+      setTimeout(()=>{
+        flashEl.innerHTML=fearImages[i];
+        flashEl.style.opacity='1';
+        setTimeout(()=>{
+          flashEl.style.opacity='0';
+          setTimeout(()=>{flashEl.innerHTML='';},300);
+        },200);
+      },i*1200);
+    });
+  }
+});
+</script>
+</body>
+</html>
